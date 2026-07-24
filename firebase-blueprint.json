@@ -1,0 +1,157 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profile",
+      "description": "Registered users with role and status",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "status": { "type": "string", "enum": ["active", "suspended"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["email", "displayName", "role"]
+    },
+    "novels": {
+      "title": "Novel",
+      "description": "Novels catalog",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "coverUrl": { "type": "string" },
+        "author": { "type": "string" },
+        "rating": { "type": "number" },
+        "genres": { "type": "array", "items": { "type": "string" } },
+        "synopsis": { "type": "string" },
+        "isVip": { "type": "boolean" },
+        "price": { "type": "number" },
+        "status": { "type": "string", "enum": ["published", "unpublished"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["title", "author", "isVip"]
+    },
+    "chapters": {
+      "title": "Novel Chapter",
+      "description": "Chapters for novels",
+      "type": "object",
+      "properties": {
+        "novelId": { "type": "string" },
+        "chapterNumber": { "type": "number" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["novelId", "chapterNumber", "title", "content"]
+    },
+    "animes": {
+      "title": "Anime",
+      "description": "Anime catalog",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "thumbnailUrl": { "type": "string" },
+        "synopsis": { "type": "string" },
+        "genres": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "enum": ["ongoing", "completed"] },
+        "releaseSchedule": { "type": "string" },
+        "rating": { "type": "number" },
+        "trailerUrl": { "type": "string" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["title", "status"]
+    },
+    "episodes": {
+      "title": "Anime Episode",
+      "description": "Episodes for anime",
+      "type": "object",
+      "properties": {
+        "animeId": { "type": "string" },
+        "episodeNumber": { "type": "number" },
+        "title": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["animeId", "episodeNumber", "title", "videoUrl"]
+    },
+    "products": {
+      "title": "Store Product",
+      "description": "Digital or physical items",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string" },
+        "stock": { "type": "number" },
+        "isDigital": { "type": "boolean" },
+        "description": { "type": "string" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["title", "price", "category"]
+    },
+    "banners": {
+      "title": "Promo Banner",
+      "description": "Sliders on dashboard & store",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "linkUrl": { "type": "string" },
+        "order": { "type": "number" },
+        "isActive": { "type": "boolean" }
+      },
+      "required": ["title", "imageUrl"]
+    },
+    "orders": {
+      "title": "Store Order",
+      "description": "Purchases of products from store",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "productId": { "type": "string" },
+        "productTitle": { "type": "string" },
+        "price": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "status": { "type": "string", "enum": ["PENDING", "APPROVED", "REJECTED", "COMPLETED"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "productId", "status"]
+    },
+    "vip_purchases": {
+      "title": "VIP Novel Purchase",
+      "description": "VIP novel access requests",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "novelId": { "type": "string" },
+        "novelTitle": { "type": "string" },
+        "price": { "type": "number" },
+        "paymentMethod": { "type": "string" },
+        "status": { "type": "string", "enum": ["PENDING", "APPROVED", "REJECTED"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "novelId", "status"]
+    },
+    "settings": {
+      "title": "Website Settings",
+      "description": "General settings managed by admin",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "adminWhatsapp": { "type": "string" },
+        "adminEmail": { "type": "string" },
+        "primaryColor": { "type": "string" },
+        "footerText": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "WZ PROJECT",
+  "description": "Platform Streaming Anime, Baca Novel VIP, & Marketplace Premium WZ PROJECT dengan Admin Panel",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
